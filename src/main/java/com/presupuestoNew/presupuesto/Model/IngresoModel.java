@@ -10,6 +10,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Ingreso")
 public class IngresoModel extends ModelAbstract {
+
+    // Atributos especiales de la clase
+
     @Enumerated(EnumType.STRING)
     private IngresoEnum tipoOperacion;
 
@@ -21,6 +24,7 @@ public class IngresoModel extends ModelAbstract {
         this.tipoOperacion = tipoOperacion;
     }
 
+    // COnstructor de la clase
     public IngresoModel(String concepto, Double monto, String denominacion, String tipoOperacionPersonalizada, IngresoEnum tipoOperacion){
         super(concepto, monto, denominacion, tipoOperacionPersonalizada);
         this.tipoOperacion = tipoOperacion;
@@ -32,9 +36,9 @@ public class IngresoModel extends ModelAbstract {
     }
 
     @Override
-    public String toString(){
-        return super.toString() + ", tipoOperacion='" + tipoOperacion + '\'' + '}';
+    public String toString() {
+        return "IngresoModel{" +
+                "tipoOperacion=" + tipoOperacion +
+                '}';
     }
-
-
 }

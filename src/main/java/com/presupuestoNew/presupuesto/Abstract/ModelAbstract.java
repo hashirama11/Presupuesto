@@ -92,13 +92,14 @@ public abstract class ModelAbstract implements OperacionInterfaz {
 
     @Override
     public String toString() {
-        return "GastoModel{" +
+        return "ModelAbstract{" +
                 "id=" + id +
                 ", fechaOperacion=" + fechaOperacion +
                 ", fechaUpdate=" + fechaUpdate +
                 ", concepto='" + concepto + '\'' +
                 ", monto=" + monto +
                 ", denominacion='" + denominacion + '\'' +
+                ", tipoOperacionPersonalizada='" + tipoOperacionPersonalizada + '\'' +
                 '}';
     }
 }
