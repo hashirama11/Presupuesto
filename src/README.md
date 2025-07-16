@@ -1,4 +1,8 @@
 # Proyecto API REST PRESUPUESTO
+
+## Documentacion
+- [Arquitectura de Registro de Cambios de Modelos Gasto - Ingreso](Arquitectura.md)
+
 ## Clase Abstracta
     Clase Abstracta OperacionInterfaz
         Clases Derivadas :  Ingreso - Gasto - Capital

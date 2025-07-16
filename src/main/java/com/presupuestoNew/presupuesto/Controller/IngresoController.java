@@ -49,7 +49,7 @@ public class IngresoController {
     }
 
         // Actualizar un registro
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updateIngreso(@PathVariable Long id,
                                                 @RequestBody IngresoModel ingresoModel){
         ingresoCRUD.crudUpdate(id, ingresoModel.getConcepto(), ingresoModel.getMonto(), ingresoModel.getDenominacion(), ingresoModel.getTipoOperacionPersonalizada(),ingresoModel.getTipoOperacion() );
@@ -72,48 +72,48 @@ public class IngresoController {
 
     // Controladores Servicios
 
-    // Controlador Total Gasto
+    // Controlador Total Ingreso
     @GetMapping("/total")
     public ResponseEntity<String> totalingreso(@RequestParam LocalDate inicio, @RequestParam LocalDate fin){
         try{
-            var gasto = ingresoReport.totalRange(inicio, fin);
-            return ResponseEntity.ok("El total de gasto es " + gasto);
+            var ingreso = ingresoReport.totalRange(inicio, fin);
+            return ResponseEntity.ok("El total de ingreso es " + ingreso);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error " + e.getMessage());
         }
     }
 
-    // Controlador promedio Gasto
+    // Controlador promedio Ingreso
     @GetMapping("/promedio")
     public ResponseEntity<String> promedio(@RequestParam LocalDate inicio, @RequestParam LocalDate fin){
         try{
-            var gasto = ingresoReport.promedioReport(inicio, fin);
-            return ResponseEntity.ok("El gasto promedio es " + gasto);
+            var ingreso = ingresoReport.promedioReport(inicio, fin);
+            return ResponseEntity.ok("El ingreso promedio es " + ingreso);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error " + e.getMessage());
         }
     }
 
-    // Controlador max Gasto
+    // Controlador max Ingreso
     @GetMapping("/max")
     public ResponseEntity<String> max(@RequestParam LocalDate inicio, @RequestParam LocalDate fin){
         try{
-            var gasto = ingresoReport.maxReport(inicio, fin);
-            return ResponseEntity.ok("El gasto maximo es " + gasto);
+            var ingreso = ingresoReport.maxReport(inicio, fin);
+            return ResponseEntity.ok("El ingreso maximo es " + ingreso);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error " + e.getMessage());
         }
     }
 
-    // Controlador promedio Gasto
+    // Controlador promedio Ingreso
     @GetMapping("/min")
     public ResponseEntity<String> min(@RequestParam LocalDate inicio, @RequestParam LocalDate fin){
         try{
-            var gasto = ingresoReport.minReport(inicio, fin);
-            return ResponseEntity.ok("El gasto minimo es " + gasto);
+            var min = ingresoReport.minReport(inicio, fin);
+            return ResponseEntity.ok("El ingreso minimo es " + min);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error " + e.getMessage());

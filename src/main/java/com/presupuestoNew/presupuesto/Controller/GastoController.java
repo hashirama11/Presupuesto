@@ -49,7 +49,7 @@ public class GastoController {
     }
 
     // Actualizar un registro
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updategasto(@PathVariable Long id,
                                                 @RequestBody GastoModel gastoModel){
         gastoCRUD.crudUpdate(id, gastoModel.getConcepto(), gastoModel.getMonto(), gastoModel.getDenominacion(), gastoModel.getTipoOperacionPersonalizada(), gastoModel.getTipoOperacion());
